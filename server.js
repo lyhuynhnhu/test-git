@@ -35,7 +35,7 @@ http.createServer( function(req, res){
         res.write("hi "+requestedUser.name+"");
 
     } else {
-        // tra lo
+        res.writeHead(404, {'Content-Type': 'text/html'});       
     }
 
     res.end();
