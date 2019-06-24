@@ -2,6 +2,7 @@ var http= require('http');
 var fs= require('fs');
 var url=require('url');
 var path=require('path');
+var uc=require('upper-case');
 
 var users = {
     1: {
@@ -26,12 +27,12 @@ http.createServer( function(req, res){
 
     if (requestedUser) {
         res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write("Hi "+requestedUser.name+", your age: "+requestedUser.age);
+        res.write(uc("Hi "+requestedUser.name+", your age: "+requestedUser.age));
         res.end();
 
     } else {
         res.writeHead(404, {'Content-Type': 'text/html'});  
-        res.end('<h1>404 not found</h1>');     
+        res.end(uc('<h1>404 not found</h1>'));     
     }
     
 }).listen(8080);
